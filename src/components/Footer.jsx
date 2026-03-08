@@ -9,9 +9,6 @@ export default function Footer() {
                 <div className="text-center mb-6">
                     <div className="flex items-center justify-center gap-2 mb-3">
                         <img src="/images/icon.webp" alt="Logo ToolsPro" className="w-7 h-7 object-contain drop-shadow" />
-                        <span className="text-base font-bold text-gray-300">
-                            Tools<span className="text-blue-400">Pro</span>
-                        </span>
                     </div>
                     <p className="text-gray-500 text-xs max-w-sm mx-auto leading-relaxed">
                         Platform penyedia tools premium digital terbaik dengan harga terjangkau.

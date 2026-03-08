@@ -31,9 +31,6 @@ export default function Navbar({ user, onOpenDashboard }) {
                         className="w-8 h-8 object-contain cursor-pointer"
                         onDoubleClick={() => navigate('/login')} // Admin trapdoor
                     />
-                    <span className="text-base font-bold text-gray-800">
-                        Tools<span className="text-blue-600">Pro</span>
-                    </span>
                 </span>
 
                 {/* CTA & Dashboard */}
