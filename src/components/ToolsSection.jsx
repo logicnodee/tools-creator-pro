@@ -64,26 +64,6 @@ const tools = [
         ],
     },
     {
-        name: 'CapCut',
-        iconImg: '/images/capcut-logo.png',
-        color: 'from-purple-500 to-pink-600',
-        lightBg: 'bg-purple-50',
-        lightBorder: 'border-purple-100',
-        iconBg: 'bg-gradient-to-br from-purple-500 to-pink-600',
-        description:
-            'CapCut adalah aplikasi penyuntingan video yang dikembangkan oleh ByteDance (perusahaan yang sama dengan TikTok).',
-        details: [
-            {
-                label: 'Fungsi',
-                text: 'Mengedit video dengan cepat menggunakan berbagai template, filter, transisi, dan musik yang sedang tren.',
-            },
-            {
-                label: 'Kelebihan',
-                text: 'Antarmukanya sangat ramah pengguna, populer untuk pembuatan konten media sosial (Reels, TikTok) baik di HP maupun PC.',
-            },
-        ],
-    },
-    {
         name: 'Canva',
         iconImg: '/images/canva-logo.png',
         color: 'from-teal-500 to-cyan-600',
@@ -100,6 +80,26 @@ const tools = [
             {
                 label: 'Kelebihan',
                 text: 'Menyediakan ribuan elemen visual dan template gratis yang siap pakai.',
+            },
+        ],
+    },
+    {
+        name: 'CapCut',
+        iconImg: '/images/capcut-logo.png',
+        color: 'from-purple-500 to-pink-600',
+        lightBg: 'bg-purple-50',
+        lightBorder: 'border-purple-100',
+        iconBg: 'bg-gradient-to-br from-purple-500 to-pink-600',
+        description:
+            'CapCut adalah aplikasi penyuntingan video yang dikembangkan oleh ByteDance (perusahaan yang sama dengan TikTok).',
+        details: [
+            {
+                label: 'Fungsi',
+                text: 'Mengedit video dengan cepat menggunakan berbagai template, filter, transisi, dan musik yang sedang tren.',
+            },
+            {
+                label: 'Kelebihan',
+                text: 'Antarmukanya sangat ramah pengguna, populer untuk pembuatan konten media sosial (Reels, TikTok) baik di HP maupun PC.',
             },
         ],
     },
