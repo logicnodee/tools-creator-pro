@@ -11,7 +11,7 @@ export default function Footer() {
                         <img src="/images/icon.webp" alt="Logo ToolsPro" className="w-7 h-7 object-contain drop-shadow" />
                     </div>
                     <p className="text-gray-500 text-xs max-w-sm mx-auto leading-relaxed">
-                        Platform penyedia tools premium digital terbaik dengan harga terjangkau.
+                        Penyedia layanan <strong>akun premium digital</strong> terlengkap. Dapatkan akses ke <strong>Canva Pro, CapCut Pro, Gemini Advanced</strong>, hingga Google Drive dengan harga paling terjangkau se-Indonesia.
                     </p>
                 </div>
 
