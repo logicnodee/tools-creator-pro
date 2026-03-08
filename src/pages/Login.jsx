@@ -71,12 +71,6 @@ export default function Login() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-100/40 rounded-full blur-3xl pointer-events-none" />
 
             <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10">
-                <div className="flex justify-center mb-6">
-                    <button onClick={() => navigate('/')} className="flex items-center text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors">
-                        <ArrowLeft className="w-4 h-4 mr-1" /> Kembali ke Beranda
-                    </button>
-                </div>
-
                 <div className="bg-white py-8 px-4 shadow-2xl shadow-blue-500/10 sm:rounded-3xl sm:px-10 border border-gray-100">
                     <div className="text-center mb-8">
                         <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl mx-auto mb-4 flex items-center justify-center shadow-lg shadow-blue-500/30">
@@ -153,19 +147,6 @@ export default function Login() {
                         </button>
                     </form>
 
-                    <div className="mt-8 text-center text-sm border-t border-gray-100 pt-6">
-                        <button
-                            type="button"
-                            onClick={() => {
-                                setIsLoginView(!isLoginView)
-                                setError(null)
-                                setSuccessMessage(null)
-                            }}
-                            className="font-bold text-gray-500 hover:text-blue-600 transition-colors"
-                        >
-                            {isLoginView ? 'Buat Akun Staf Baru' : 'Kembali ke halaman Login'}
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
