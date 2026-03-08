@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { LogOut, ArrowLeft, Users, Activity, Loader2, CheckCircle2, XCircle, Key, Search } from 'lucide-react'
+import { LogOut, ArrowLeft, Users, Activity, Loader2, CheckCircle2, XCircle, Key, Search, X } from 'lucide-react'
 import { supabase } from '../supabaseClient'
 
 export default function DashboardAdmin() {
@@ -16,6 +16,7 @@ export default function DashboardAdmin() {
     })
     const [savingAccess, setSavingAccess] = useState(false)
     const [searchAdmin, setSearchAdmin] = useState('')
+    const [previewImage, setPreviewImage] = useState(null)
 
     // Filter invoices berdasarkan search
     const filteredInvoices = invoices.filter(inv => {
@@ -258,7 +259,14 @@ export default function DashboardAdmin() {
                                         <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
                                             <div className="flex items-center gap-2">
                                                 <span className="text-xs font-semibold text-blue-600">{inv.paket_pilihan || 'Premium'}</span>
-                                                {inv.bukti_transfer && (<a href={inv.bukti_transfer} target="_blank" rel="noopener noreferrer" className="text-[10px] font-semibold text-gray-500 bg-gray-100 px-2 py-0.5 rounded">Bukti</a>)}
+                                                {inv.bukti_transfer && (
+                                                    <img
+                                                        src={inv.bukti_transfer}
+                                                        alt="Bukti Transfer"
+                                                        className="w-10 h-10 object-cover cursor-pointer hover:opacity-80 rounded border border-gray-200 shadow-sm"
+                                                        onClick={() => setPreviewImage(inv.bukti_transfer)}
+                                                    />
+                                                )}
                                             </div>
                                             <div className="flex items-center gap-1.5">
                                                 <button onClick={() => handleOpenAccess(inv)} className={`px-2 py-1 text-[10px] font-bold rounded flex items-center gap-1 ${inv.akses_gemini || inv.akses_canva || inv.akses_capcut ? 'bg-indigo-100 text-indigo-700' : 'bg-gray-100 text-gray-600'}`}><Key className="w-3 h-3" /> Auth</button>
@@ -308,7 +316,18 @@ export default function DashboardAdmin() {
                                                     </td>
                                                     <td className="px-6 py-4"><span className="font-bold text-gray-900">{inv.nama}</span><br /><span className="text-xs text-gray-500">{inv.email}</span><br /><span className="text-xs text-gray-500">{inv.no_wa}</span></td>
                                                     <td className="px-6 py-4 whitespace-nowrap"><span className="font-semibold text-blue-600">{inv.paket_pilihan || 'Premium'}</span></td>
-                                                    <td className="px-6 py-4 whitespace-nowrap">{inv.bukti_transfer ? (<a href={inv.bukti_transfer} target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold rounded-lg border border-gray-200 inline-block">Lihat Bukti</a>) : (<span className="text-xs text-gray-400 italic">Kosong</span>)}</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap">
+                                                        {inv.bukti_transfer ? (
+                                                            <img
+                                                                src={inv.bukti_transfer}
+                                                                alt="Bukti Transfer"
+                                                                className="w-12 h-12 object-cover cursor-pointer hover:opacity-80 rounded-lg border border-gray-200 shadow-sm transition-opacity"
+                                                                onClick={() => setPreviewImage(inv.bukti_transfer)}
+                                                            />
+                                                        ) : (
+                                                            <span className="text-xs text-gray-400 italic">Kosong</span>
+                                                        )}
+                                                    </td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-center">
                                                         {inv.status?.toLowerCase() === 'lunas' || inv.status?.toLowerCase() === 'sukses' ? (<span className="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-bold bg-green-100 text-green-700 border border-green-200"><CheckCircle2 className="w-3.5 h-3.5" /> Lunas</span>)
                                                             : inv.status?.toLowerCase() === 'ditolak' || inv.status?.toLowerCase() === 'batal' ? (<span className="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-bold bg-red-100 text-red-700 border border-red-200"><XCircle className="w-3.5 h-3.5" /> Ditolak</span>)
@@ -347,6 +366,30 @@ export default function DashboardAdmin() {
                     )}
                 </div>
             </div>
+
+            {/* Modal Image Preview */}
+            {previewImage && (
+                <div
+                    className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 cursor-zoom-out"
+                    onClick={() => setPreviewImage(null)}
+                >
+                    <div className="relative max-w-2xl w-full flex items-center justify-center animate-fade-in-up">
+                        <button
+                            className="absolute -top-10 right-0 sm:-right-10 w-8 h-8 flex items-center justify-center bg-white/20 hover:bg-red-500 text-white rounded-full transition-colors"
+                            onClick={() => setPreviewImage(null)}
+                            title="Tutup (Esc)"
+                        >
+                            <X className="w-5 h-5" />
+                        </button>
+                        <img
+                            src={previewImage}
+                            alt="Bukti Preview"
+                            className="max-h-[85vh] w-auto max-w-full rounded-lg shadow-2xl object-contain"
+                            onClick={(e) => e.stopPropagation()}
+                        />
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
