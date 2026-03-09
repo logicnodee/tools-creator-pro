@@ -3,6 +3,26 @@ import { ChevronDown, Package } from 'lucide-react'
 
 const tools = [
     {
+        name: 'Canva',
+        iconImg: '/images/canva-logo.png',
+        color: 'from-teal-500 to-cyan-600',
+        lightBg: 'bg-teal-50',
+        lightBorder: 'border-teal-100',
+        iconBg: 'bg-gradient-to-br from-teal-500 to-cyan-600',
+        description:
+            'Canva adalah platform desain grafis online yang memudahkan siapa saja untuk membuat desain tanpa perlu keahlian profesional.',
+        details: [
+            {
+                label: 'Fungsi',
+                text: 'Membuat poster, presentasi, logo, hingga konten media sosial menggunakan sistem drag-and-drop.',
+            },
+            {
+                label: 'Kelebihan',
+                text: 'Menyediakan ribuan elemen visual dan template gratis yang siap pakai.',
+            },
+        ],
+    },
+    {
         name: 'Gemini Pro',
         iconImg: '/images/gemini-logo.png',
         color: 'from-blue-500 to-indigo-600',
@@ -60,26 +80,6 @@ const tools = [
             {
                 label: 'Integrasi',
                 text: 'Terhubung langsung dengan Google Docs, Sheets, dan Slides, sehingga memudahkan kolaborasi dokumen secara real-time.',
-            },
-        ],
-    },
-    {
-        name: 'Canva',
-        iconImg: '/images/canva-logo.png',
-        color: 'from-teal-500 to-cyan-600',
-        lightBg: 'bg-teal-50',
-        lightBorder: 'border-teal-100',
-        iconBg: 'bg-gradient-to-br from-teal-500 to-cyan-600',
-        description:
-            'Canva adalah platform desain grafis online yang memudahkan siapa saja untuk membuat desain tanpa perlu keahlian profesional.',
-        details: [
-            {
-                label: 'Fungsi',
-                text: 'Membuat poster, presentasi, logo, hingga konten media sosial menggunakan sistem drag-and-drop.',
-            },
-            {
-                label: 'Kelebihan',
-                text: 'Menyediakan ribuan elemen visual dan template gratis yang siap pakai.',
             },
         ],
     },
