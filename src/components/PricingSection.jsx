@@ -5,8 +5,8 @@ const packages = [
     {
         name: 'Starter',
         price: '10K',
-        originalPrice: '',
-        period: '/bln',
+        originalPrice: '125K',
+        period: '/bln untuk satu akun',
         color: 'from-blue-400 to-blue-600',
         shadow: 'shadow-blue-500/20',
         popular: false,
@@ -23,8 +23,8 @@ const packages = [
     {
         name: 'Professional',
         price: '39K',
-        originalPrice: '',
-        period: '/bln',
+        originalPrice: '434K',
+        period: '/bln untuk satu akun',
         color: 'from-blue-500 to-indigo-600',
         shadow: 'shadow-blue-600/30',
         popular: true,
@@ -41,8 +41,8 @@ const packages = [
     {
         name: 'Ultimate (Pre Order)',
         price: '69K',
-        originalPrice: '',
-        period: '/bln',
+        originalPrice: '563K',
+        period: '/bln untuk satu akun',
         color: 'from-indigo-500 to-purple-600',
         shadow: 'shadow-indigo-500/30',
         popular: false,
@@ -107,13 +107,20 @@ function PricingCard({ pkg, index, onSelectPlan }) {
                         <h3 className="text-[10px] sm:text-lg font-bold text-gray-800 mb-1 sm:mb-3">{pkg.name}</h3>
 
                         {/* Price */}
+                        {pkg.originalPrice && (
+                            <div className="flex justify-center items-center gap-1 mb-1">
+                                <span className="text-[10px] sm:text-sm text-gray-400 line-through decoration-red-500/50 decoration-2">Rp {pkg.originalPrice}</span>
+                            </div>
+                        )}
 
                         <div className="flex items-baseline justify-center gap-0.5 sm:gap-1">
                             <span className="text-[8px] sm:text-sm text-gray-400 font-medium">Rp</span>
                             <span className={`text-2xl sm:text-5xl font-black bg-gradient-to-r ${pkg.color} bg-clip-text text-transparent`}>
                                 {pkg.price}
                             </span>
-                            <span className="text-[7px] sm:text-sm text-gray-400 font-medium">{pkg.period}</span>
+                        </div>
+                        <div className="text-center mt-1">
+                            <span className="text-[7px] sm:text-xs text-gray-400 font-medium">{pkg.period}</span>
                         </div>
                     </div>
 
